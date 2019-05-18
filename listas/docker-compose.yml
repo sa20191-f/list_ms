@@ -1,0 +1,25 @@
+version: '2.1'
+services:
+  lists-db:
+    container_name: lists-db
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_USER: arquisoft
+      MYSQL_PASSWORD: 123
+      MYSQL_DATABASE: lists-db
+      MYSQL_HOST: lists-db
+  #microservicio de recursos
+  lists-ms:
+    container_name: lists-ms
+    image: lists-ms
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - /lists-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - lists-db

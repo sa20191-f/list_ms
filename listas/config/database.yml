@@ -1,0 +1,23 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: 123
+  host: lists-db
+  strict: false
+
+development:
+  <<: *default
+  database: lists-db
+  strict: false
+
+test:
+  <<: *default
+  database: sa_lists_app_test
+  strict: false
+  
+production:
+  <<: *default
+  database: lists-db
+  strict: false
