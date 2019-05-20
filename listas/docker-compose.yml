@@ -16,10 +16,10 @@ services:
     container_name: lists-ms
     image: lists-ms
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bundle exec rails s -p 4000 -b '0.0.0.0'
     volumes:
       - /lists-app
     ports:
-      - "3000:3000"
+      - "4000:4000"
     depends_on:
       - lists-db

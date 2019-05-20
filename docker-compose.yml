@@ -20,6 +20,7 @@ services:
     volumes:
       - /listas
     ports:
+       
       - "3000:3000"
     depends_on:
       - lists-db

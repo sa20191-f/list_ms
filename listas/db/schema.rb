@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_05_17_033343) do
   end
 
   create_table "song_vinculations", force: :cascade do |t|
-    t.integer "song_id"
+    t.string "song_id"
     t.integer "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
