@@ -1,0 +1,158 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Microservice for Lists
+  description: Ruby on rails and mysql2
+  license:
+    name: Sergio Ivan Sanchez Plazas
+host: 192.168.99.101:4000
+basePath: /lists
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /lists:
+    post:
+      summary: Creates a new lists
+      operationId: createLists
+      parameters:
+        - name: lists
+          in: body
+          required: true
+          description: List Object
+          schema:
+            $ref: '#/definitions/ListInput'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/Lists'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+    get:
+      summary: Returns all lists
+      operationId: getAllLits
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Lists'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+  /lists/{id}:
+    get:
+      summary: Returns a list with the given id
+      operationId: getListsByid
+      parameters:
+        - name: id
+          in: path
+          description: The id of the lists to be returned
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Lists'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+    put:
+      summary: Updates a list with the given id
+      operationId: updateLists
+      parameters:
+        - name: id
+          in: path
+          description: The id of the lists to be updated
+          required: true
+          type: integer
+        - name: lists
+          in: body
+          required: true
+          description: Lists Object
+          schema:
+            $ref: '#/definitions/ListsInput'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Lists'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+    delete:
+      summary: Deletes a lists with the given id
+      operationId: deleteLists
+      parameters:
+        - name: id
+          in: path
+          description: The id of the lists to be deleted
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Lists'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+# Errors
+  ErrorModel:
+    type: object
+    required:
+      - mesage
+      - id
+    properties:
+      mesage:
+        type: string
+      id:
+        type: number
+      description:
+        type: object
