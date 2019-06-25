@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+List.create([{name: "SALSA",image: "https://i.ytimg.com/vi/LxPmucOLUK4/maxresdefault.jpg", user_id: 1}])
