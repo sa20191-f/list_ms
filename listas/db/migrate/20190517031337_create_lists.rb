@@ -4,7 +4,7 @@ class CreateLists < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :image
       t.integer :user_id
-
+      t.string :email
       t.timestamps
     end
   end
