@@ -90,11 +90,12 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.2.10)
+    mysql2 (0.4.10)
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     nori (2.6.0)
-    puma (3.12.1)
+    puma (3.12.3)
     rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -149,7 +150,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.1)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -175,12 +175,12 @@ DEPENDENCIES
   byebug
   execjs
   listen (>= 3.0.5, < 3.2)
-  puma (~> 3.11)
+  mysql2 (>= 0.3.18, < 0.5)
+  puma (~> 3.12)
   rails (~> 5.2.3)
   savon (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3
   therubyracer
   tzinfo-data
   wash_out
